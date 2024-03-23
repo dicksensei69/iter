@@ -59,7 +59,7 @@ llmLegacy historyMessages (unlines -> sysPrompt) (unlines -> userPrompt) = do
       . setBearer token
       $ HTTP.setRequestBodyJSON
         (Aeson.object body)
-        "POST https://api.groq.com/v1/request_manager/text_completion"
+        "POST http://127.0.0.1:5000/v1/"
 
   t0 <- liftIO Time.getCurrentTime
   resp <- HTTP.getResponseBody <$> HTTP.httpLBS request
